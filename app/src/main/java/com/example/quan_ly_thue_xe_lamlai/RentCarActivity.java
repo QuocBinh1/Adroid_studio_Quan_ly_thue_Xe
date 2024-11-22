@@ -63,7 +63,7 @@ public class RentCarActivity extends AppCompatActivity {
             if (customerName.isEmpty() || phoneNumber.isEmpty() || pickupDate.isEmpty()) {
                 Toast.makeText(RentCarActivity.this, "Vui lòng điền đầy đủ thông tin", Toast.LENGTH_SHORT).show();
             } else {
-                // Lưu thông tin đặt xe vào cơ sở dữ liệu hoặc chuyển đến trang xác nhận
+                // Lưu thông tin đặt xe vào cơ sở dữ liệu hoặc chuyển đến trang xác nhậns
                 Toast.makeText(RentCarActivity.this, "Đặt xe thành công!", Toast.LENGTH_SHORT).show();
             }
         });

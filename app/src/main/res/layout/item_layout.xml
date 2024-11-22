@@ -8,7 +8,7 @@
     android:layout_marginBottom="8dp"
     android:elevation="2dp">
 
-    <!-- ImageView để hiển thị hình ảnh -->
+    <!-- ImageView để hiển thị hình ảnh s-->
     <ImageView
         android:id="@+id/itemImage"
         android:layout_width="match_parent"

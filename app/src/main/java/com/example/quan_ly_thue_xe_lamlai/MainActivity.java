@@ -188,7 +188,7 @@ public class MainActivity extends AppCompatActivity {
         }
 
         try {
-            // Câu lệnh SQL cập nhật bản ghi dựa trên name
+            // Câu lệnh SQL cập nhật bản ghi dựa trên names
             String sql = "UPDATE tbxe SET Price = '" + price + "', Description = '" + description + "', Img = '" + img + "' WHERE Name = '" + name + "'";
 
             // In ra câu lệnh SQL để kiểm tra

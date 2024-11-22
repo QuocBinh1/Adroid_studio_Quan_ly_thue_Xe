@@ -43,7 +43,7 @@ public class CarAdapter extends RecyclerView.Adapter<CarAdapter.CarViewHolder> {
                 .load(car.getImgPath())
                 .into(holder.imageView);
         holder.btnRentCar.setOnClickListener(v -> {
-            // Khi nhấn nút Đặt xe, chuyển đến Activity khác để ghi thông tin đặt xe
+            // Khi nhấn nút Đặt xe, chuyển đến Activity khác để ghi thông tin đặt xes
             Intent intent = new Intent(context, RentCarActivity.class);
 
             intent.putExtra("carName", car.getName());

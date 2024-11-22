@@ -38,7 +38,7 @@ public class trangchu extends AppCompatActivity {
 
 
         mydatabase = openOrCreateDatabase("Quanlythuexe.sqlite", MODE_PRIVATE, null);
-        // Lấy dữ liệu từ database và thêm vào danh sách
+        // Lấy dữ liệu từ database và thêm vào danh sáchs
         try {
             Cursor cursor = mydatabase.rawQuery("SELECT * FROM tbxe", null);
             if (cursor.moveToFirst()) {

@@ -1,5 +1,5 @@
 package com.example.quan_ly_thue_xe_lamlai;
-
+//s
 public class Car {
     private String name;
     private String price;

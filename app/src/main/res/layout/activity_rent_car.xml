@@ -19,7 +19,7 @@
             android:layout_marginBottom="16dp"
             android:scaleType="centerCrop" />
 
-        <!-- Hiển thị tên xe -->
+        <!-- Hiển thị tên xe s-->
         <TextView
             android:id="@+id/txtCarName"
             android:layout_width="match_parent"

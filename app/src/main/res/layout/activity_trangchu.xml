@@ -6,7 +6,7 @@
     android:orientation="vertical"
     android:padding="16dp">
 
-    <!-- RecyclerView để hiển thị danh sách động -->
+    <!-- RecyclerView để hiển thị danh sách độngs -->
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerView"
         android:layout_width="match_parent"
