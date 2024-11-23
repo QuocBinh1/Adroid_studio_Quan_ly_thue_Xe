@@ -29,7 +29,7 @@ public class MainActivity extends AppCompatActivity {
     private static final int PICK_IMAGE_REQUEST = 1;
     TextView txtimg;
     EditText editname, editprice, editdescription;
-    Button btninsert, btnupdate, btndelete, btnquery, btntrangchu, buttonSelectImage, buttonUploadImage;
+    Button btninsert, btnupdate, btndelete, btnquery, btntrangchu, buttonSelectImage, btnoder,buttonUploadImage;
     ImageView imageView;
     SQLiteDatabase mydatabase;
     ListView lv;
@@ -52,7 +52,9 @@ public class MainActivity extends AppCompatActivity {
         btndelete = findViewById(R.id.btndelete);
         btnquery = findViewById(R.id.btnquery);
         buttonSelectImage = findViewById(R.id.buttonSelectImage);
+        btnoder = findViewById(R.id.btnoder);
         txtimg = findViewById(R.id.txtimg);
+
 
         lv = findViewById(R.id.lv);
         mylistview = new ArrayList<>();
@@ -102,7 +104,10 @@ public class MainActivity extends AppCompatActivity {
             Intent intent = new Intent(MainActivity.this, trangchu.class);
             startActivity(intent);
         });
-
+        btnoder.setOnClickListener(v -> {
+            Intent intent = new Intent(MainActivity.this, CRUD_Oder.class);
+            startActivity(intent);
+        });
         // Update
         //----------------------------------------------------------------------------------------------
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {

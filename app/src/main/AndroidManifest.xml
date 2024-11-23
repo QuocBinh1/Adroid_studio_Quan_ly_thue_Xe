@@ -16,6 +16,15 @@
         android:theme="@style/Theme.Quan_ly_thue_Xe_lamlai"
         tools:targetApi="31">
         <activity
+            android:name=".History_Order"
+            android:exported="false" />
+        <activity
+            android:name=".Thanks"
+            android:exported="false" />
+        <activity
+            android:name=".CRUD_Oder"
+            android:exported="false" />
+        <activity
             android:name=".RentCarActivity"
             android:exported="false" />
         <activity

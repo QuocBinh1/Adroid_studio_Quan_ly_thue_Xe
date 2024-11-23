@@ -6,18 +6,12 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".RentCarActivity">
-    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    <LinearLayout
         android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:padding="16dp">
 
-        <ImageView
-            android:id="@+id/imgCar"
-            android:layout_width="match_parent"
-            android:layout_height="200dp"
-            android:layout_marginBottom="16dp"
-            android:scaleType="centerCrop" />
 
         <!-- Hiển thị tên xe s-->
         <TextView
@@ -54,6 +48,12 @@
             android:layout_height="wrap_content"
             android:hint="Số điện thoại"/>
 
+        <EditText
+            android:id="@+id/edtAddress"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:hint="Địa chỉ nhận xe"/>
         <EditText
             android:id="@+id/edtPickupDate"
             android:layout_width="match_parent"

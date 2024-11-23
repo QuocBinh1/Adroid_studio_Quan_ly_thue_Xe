@@ -1,28 +1,45 @@
+//RentCarActivity.java
 package com.example.quan_ly_thue_xe_lamlai;
 
+import android.content.Intent;
+import android.database.sqlite.SQLiteDatabase;
+import android.database.sqlite.SQLiteStatement;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
+import android.util.Log;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
 import com.bumptech.glide.Glide;
+import com.bumptech.glide.load.DataSource;
+import com.bumptech.glide.load.engine.GlideException;
+import com.bumptech.glide.request.RequestListener;
+import com.bumptech.glide.request.target.Target;
 
 import org.w3c.dom.Text;
 
+import java.util.ArrayList;
+
 public class RentCarActivity extends AppCompatActivity {
     // Khai báo biến
-    private EditText edtCustomerName, edtPhoneNumber, edtPickupDate;
+    private EditText edtCustomerName, edtPhoneNumber, edtPickupDate , edtAddress;
     private Button btnConfirmRent;
     private TextView txtCarName, txtCarPrice, txtCarDescription;
-    private ImageView imgCar;
+
+    SQLiteDatabase mydatabase;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -32,40 +49,74 @@ public class RentCarActivity extends AppCompatActivity {
         txtCarName = findViewById(R.id.txtCarName);
         txtCarPrice = findViewById(R.id.txtCarPrice);
         txtCarDescription = findViewById(R.id.txtCarDescription);
-        imgCar = findViewById(R.id.imgCar);
 
-
+        edtAddress = findViewById(R.id.edtAddress);
         edtCustomerName = findViewById(R.id.edtCustomerName);
         edtPhoneNumber = findViewById(R.id.edtPhoneNumber);
         edtPickupDate = findViewById(R.id.edtPickupDate);
         btnConfirmRent = findViewById(R.id.btnConfirmRent);
 
-        // Lấy thông tin xe từ Intent
+        // Nhận dữ liệu từ Intent
         String carName = getIntent().getStringExtra("carName");
         String carPrice = getIntent().getStringExtra("carPrice");
         String carDescription = getIntent().getStringExtra("carDescription");
-        String _carImg = getIntent().getStringExtra("carImg");
+
+
 
         // Hiển thị thông tin xe
-        // Sử dụng Glide để tải hình ảnh
-        Glide.with(this).load(_carImg).into(imgCar);  // Dùng Glide để tải hình ảnh
         txtCarName.setText(carName);
         txtCarPrice.setText(carPrice);
         txtCarDescription.setText(carDescription);
+        // Hiển thị ảnh
 
+//--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
         // Xử lý sự kiện "Xác nhận đặt xe"
         btnConfirmRent.setOnClickListener(v -> {
             String customerName = edtCustomerName.getText().toString();
             String phoneNumber = edtPhoneNumber.getText().toString();
-            String pickupDate = edtPickupDate.getText().toString();
+            String address = edtAddress.getText().toString();
+            String pickupDate = edtPickupDate.getText().toString().trim();
 
-            if (customerName.isEmpty() || phoneNumber.isEmpty() || pickupDate.isEmpty()) {
+            if (customerName.isEmpty() || phoneNumber.isEmpty() || pickupDate.isEmpty() || address.isEmpty()) {
                 Toast.makeText(RentCarActivity.this, "Vui lòng điền đầy đủ thông tin", Toast.LENGTH_SHORT).show();
-            } else {
-                // Lưu thông tin đặt xe vào cơ sở dữ liệu hoặc chuyển đến trang xác nhậns
-                Toast.makeText(RentCarActivity.this, "Đặt xe thành công!", Toast.LENGTH_SHORT).show();
             }
+            else
+            {
+                // Tạo database
+                mydatabase = openOrCreateDatabase("quanlythuexe.sqlite", MODE_PRIVATE, null);
+                String createOrderTableQuery = "CREATE TABLE IF NOT EXISTS tborder (" +
+                        "id INTEGER PRIMARY KEY AUTOINCREMENT, " +
+                        "carName TEXT, " +
+                        "carPrice REAL, " +
+                        "customerName TEXT, " +
+                        "phoneNumber TEXT, " +
+                        "address TEXT, " +
+                        "pickupDate TEXT)";
+                mydatabase.execSQL(createOrderTableQuery);
+
+                // Thêm dữ liệu vào bảng tborder
+                String insertOrderQuery = "INSERT INTO tborder (carName, carPrice, customerName, phoneNumber, address, pickupDate) VALUES (?, ?, ?, ?, ?, ?)";
+                SQLiteStatement statement = mydatabase.compileStatement(insertOrderQuery);
+                statement.bindString(1, txtCarName.getText().toString());
+                statement.bindString(2, txtCarPrice.getText().toString());
+                statement.bindString(3, customerName);
+                statement.bindString(4, phoneNumber);
+                statement.bindString(5, address);
+                statement.bindString(6, pickupDate);
+                statement.executeInsert();
+
+                Toast.makeText(RentCarActivity.this, "Đặt xe thành công!", Toast.LENGTH_SHORT).show();
+
+
+
+                //chuyển qua trang cảm ơn đặt xe
+                Intent intent = new Intent(RentCarActivity.this, Thanks.class);
+                startActivity(intent);
+                finish();
+
+            }
+
         });
 
 

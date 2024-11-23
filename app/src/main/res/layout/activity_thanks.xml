@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Thanks">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="47dp">
+
+        <ImageButton
+            android:id="@+id/imgbackthank"
+            android:layout_width="53dp"
+            android:layout_height="wrap_content"
+            app:srcCompat="@drawable/undo_regular_24" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="77dp"
+            android:orientation="horizontal"></LinearLayout>
+
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="match_parent"
+            android:layout_height="140dp"
+            android:textAlignment="center"
+            app:srcCompat="@drawable/home" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="15dp"
+            android:orientation="horizontal"></LinearLayout>
+
+        <TextView
+            android:id="@+id/textView7"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Bạn đã đặt xe thành công!"
+            android:textAlignment="center"
+            android:textAllCaps="true"
+            android:textColor="#FF0000"
+            android:textSize="24sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/textView8"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="cảm ơn bạn đã đặt xe , bộ phận chăm sóc khách hàng sẽ xác nhận đơn trong vòng 24h , hãy để ý điện thoại bạn nhé ."
+            android:textAlignment="center"
+            android:textSize="16sp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="58dp"
+            android:orientation="horizontal"></LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/btnhistorythank"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Lịch Sử" />
+
+            <Button
+                android:id="@+id/btntrangchuthank"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Trang Chủ"
+                android:textAlignment="textEnd" />
+
+            <Button
+                android:id="@+id/btnorderthank"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="CRUD_order" />
+        </LinearLayout>
+
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
