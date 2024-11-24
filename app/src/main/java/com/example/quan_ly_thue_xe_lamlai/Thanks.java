@@ -14,7 +14,7 @@ import androidx.core.view.WindowInsetsCompat;
 
 public class Thanks extends AppCompatActivity {
     //khai bao
-    Button btnhistorythank , btntrangchuthank ,btnorderthank;
+    Button btnhistorythank , btntrangchuthank ;
     ImageView imgbackthank;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,7 +25,6 @@ public class Thanks extends AppCompatActivity {
         btnhistorythank = findViewById(R.id.btnhistorythank);
         btntrangchuthank = findViewById(R.id.btntrangchuthank);
         imgbackthank = findViewById(R.id.imgbackthank);
-        btnorderthank = findViewById(R.id.btnorderthank);
         // Xử lý sự kiện
         imgbackthank.setOnClickListener(v -> {
             finish();
@@ -44,15 +43,7 @@ public class Thanks extends AppCompatActivity {
                 startActivity(intent);
             }
         });
-        btnorderthank.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(Thanks.this, CRUD_Oder.class);
-                intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
-                startActivity(intent);
-                finish(); // Đảm bảo Thanks cũng kết thúc
-            }
-        });
+
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);

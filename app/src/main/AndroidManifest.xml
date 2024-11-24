@@ -22,7 +22,7 @@
             android:name=".Thanks"
             android:exported="false" />
         <activity
-            android:name=".CRUD_Oder"
+            android:name=".Order_CRUD"
             android:exported="false" />
         <activity
             android:name=".RentCarActivity"
@@ -31,7 +31,7 @@
             android:name=".trangchu"
             android:exported="false" />
         <activity
-            android:name=".MainActivity"
+            android:name=".Car_CRUD"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

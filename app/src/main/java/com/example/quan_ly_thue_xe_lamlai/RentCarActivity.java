@@ -7,6 +7,7 @@ import android.database.sqlite.SQLiteStatement;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
@@ -37,7 +38,7 @@ public class RentCarActivity extends AppCompatActivity {
     private EditText edtCustomerName, edtPhoneNumber, edtPickupDate , edtAddress;
     private Button btnConfirmRent;
     private TextView txtCarName, txtCarPrice, txtCarDescription;
-
+    private ImageView btnback;
     SQLiteDatabase mydatabase;
 
     @Override
@@ -49,24 +50,27 @@ public class RentCarActivity extends AppCompatActivity {
         txtCarName = findViewById(R.id.txtCarName);
         txtCarPrice = findViewById(R.id.txtCarPrice);
         txtCarDescription = findViewById(R.id.txtCarDescription);
-
+        btnback = findViewById(R.id.btnback);
         edtAddress = findViewById(R.id.edtAddress);
         edtCustomerName = findViewById(R.id.edtCustomerName);
         edtPhoneNumber = findViewById(R.id.edtPhoneNumber);
         edtPickupDate = findViewById(R.id.edtPickupDate);
         btnConfirmRent = findViewById(R.id.btnConfirmRent);
-
+        btnback.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                finish();
+            }
+        });
         // Nhận dữ liệu từ Intent
         String carName = getIntent().getStringExtra("carName");
         String carPrice = getIntent().getStringExtra("carPrice");
         String carDescription = getIntent().getStringExtra("carDescription");
 
-
-
         // Hiển thị thông tin xe
-        txtCarName.setText(carName);
-        txtCarPrice.setText(carPrice);
-        txtCarDescription.setText(carDescription);
+        txtCarName.setText("Tên Xe: "+carName);
+        txtCarPrice.setText("Giá Thuê: "+carPrice+"k/ngày");
+        txtCarDescription.setText("Mô Tả: \n"+carDescription);
         // Hiển thị ảnh
 
 //--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------

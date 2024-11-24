@@ -68,23 +68,19 @@
 
             <Button
                 android:id="@+id/btnhistorythank"
-                android:layout_width="wrap_content"
+                android:layout_width="132dp"
                 android:layout_height="wrap_content"
+                android:layout_marginLeft="50dp"
                 android:text="Lịch Sử" />
 
             <Button
                 android:id="@+id/btntrangchuthank"
-                android:layout_width="wrap_content"
+                android:layout_width="135dp"
                 android:layout_height="wrap_content"
+                android:layout_marginLeft="50dp"
                 android:text="Trang Chủ"
-                android:textAlignment="textEnd" />
+                android:textAlignment="center" />
 
-            <Button
-                android:id="@+id/btnorderthank"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="CRUD_order" />
         </LinearLayout>
 
     </LinearLayout>

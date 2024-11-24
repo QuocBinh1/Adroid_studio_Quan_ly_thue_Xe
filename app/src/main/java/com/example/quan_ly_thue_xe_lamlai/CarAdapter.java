@@ -28,16 +28,17 @@ public class CarAdapter extends RecyclerView.Adapter<CarAdapter.CarViewHolder> {
     @NonNull
     @Override
     public CarViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(context).inflate(R.layout.item_layout, parent, false);
+        View view = LayoutInflater.from(context).inflate(R.layout.item_car, parent, false);
         return new CarViewHolder(view);
     }
+//        holder.txtOrderId.setText("Mã Đơn: " + order.getId()); // Hiển thị ID đơn hàng
 
     @Override
     public void onBindViewHolder(@NonNull CarViewHolder holder, int position) {
         Car car = carList.get(position);
         holder.nameTextView.setText(car.getName());
-        holder.priceTextView.setText(car.getPrice());
-        holder.descriptionTextView.setText(car.getDescription());
+        holder.priceTextView.setText(" Giá Thuê:"+car.getPrice()+"k/ngày");
+        holder.descriptionTextView.setText("Mô tả: \n"+car.getDescription());
         // Load ảnh bằng Glide
         Glide.with(context)
                 .load(car.getImgPath())

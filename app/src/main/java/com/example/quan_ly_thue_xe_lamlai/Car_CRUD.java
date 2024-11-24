@@ -5,7 +5,6 @@ import android.database.sqlite.SQLiteDatabase;
 import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
-import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
@@ -19,11 +18,9 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
-import com.bumptech.glide.Glide;
-
 import java.util.ArrayList;
 
-public class MainActivity extends AppCompatActivity {
+public class Car_CRUD extends AppCompatActivity {
     //----------------------------------------------------------------------------------------------
     private Uri imageUri;
     private static final int PICK_IMAGE_REQUEST = 1;
@@ -40,7 +37,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_crud_car);
         //----------------------------------------------------------------------------------------------
         //ánh   xạ
         btntrangchu = findViewById(R.id.btntrangchu);
@@ -58,7 +55,7 @@ public class MainActivity extends AppCompatActivity {
 
         lv = findViewById(R.id.lv);
         mylistview = new ArrayList<>();
-        myadapter = new ArrayAdapter<>(MainActivity.this, android.R.layout.simple_list_item_1, mylistview);
+        myadapter = new ArrayAdapter<>(Car_CRUD.this, android.R.layout.simple_list_item_1, mylistview);
         lv.setAdapter(myadapter);
 
         // Open or create database
@@ -101,11 +98,11 @@ public class MainActivity extends AppCompatActivity {
             startActivityForResult(Intent.createChooser(intent, "Select Image"), PICK_IMAGE_REQUEST);
         });
         btntrangchu.setOnClickListener(v -> {
-            Intent intent = new Intent(MainActivity.this, trangchu.class);
+            Intent intent = new Intent(Car_CRUD.this, trangchu.class);
             startActivity(intent);
         });
         btnoder.setOnClickListener(v -> {
-            Intent intent = new Intent(MainActivity.this, CRUD_Oder.class);
+            Intent intent = new Intent(Car_CRUD.this, Order_CRUD.class);
             startActivity(intent);
         });
         // Update

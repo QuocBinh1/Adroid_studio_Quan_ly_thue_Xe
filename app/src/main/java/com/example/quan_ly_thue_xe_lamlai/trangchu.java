@@ -23,10 +23,12 @@ import java.util.List;
 
 public class trangchu extends AppCompatActivity {
     //khai baos
+    ImageButton btnhistory;
+
     RecyclerView recyclerView;
     SQLiteDatabase mydatabase;
     List<Car> carList;
-    Button btnhistory;
+    //Button btnhistory;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
