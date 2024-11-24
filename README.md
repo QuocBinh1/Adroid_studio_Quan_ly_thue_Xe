@@ -1,8 +1,6 @@
 xây dụng APP thuê xe đơn giản và có sử dụng cơ sở dữ liêu và CRUD 
 
-Admin xe
-
-![image](https://github.com/user-attachments/assets/ae66ddbc-8be9-4166-9fdd-d1baf7107dcb)
+Admin xe ![image](https://github.com/user-attachments/assets/ae66ddbc-8be9-4166-9fdd-d1baf7107dcb)
 
 admin đơn hàng
 
